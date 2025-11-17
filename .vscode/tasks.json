@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build mega-sena",
+      "type": "shell",
+      "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+      "args": [
+        "-I", "${workspaceFolder}/includes",
+        "${workspaceFolder}/src/main.c",
+        "${workspaceFolder}/src/generate.c",
+        "${workspaceFolder}/src/input.c",
+        "${workspaceFolder}/src/utils.c",
+        "-o",
+        "${workspaceFolder}/mega-sena.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
