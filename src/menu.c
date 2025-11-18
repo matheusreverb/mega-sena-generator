@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include "../includes/mega-sena.h"
 #include "../includes/config.h"
 #include "../includes/menu.h"
+
+#include "../includes/mega-sena.h"
+#include "../includes/loto-facil.h"
 
 
 void endGame(size_t limit, int gameSelected) {
@@ -50,12 +52,11 @@ void setGame (size_t limit, int gameSelected) {
     }
     switch(choice) {
       case 1:
-        printf("\n**MEGASENA**\n");
         megaSena();
         endGame(limit, choice);
         return;
       case 2:
-        printf("\n**LOTOFACIL**\n");
+        lotoFacil();
         endGame(limit, choice);
         return;
       case OPTIONS_NUMBERS:

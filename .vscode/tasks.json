@@ -12,7 +12,10 @@
         "${workspaceFolder}/src/input.c",
         "${workspaceFolder}/src/utils.c",
         "${workspaceFolder}/src/menu.c",
+        "${workspaceFolder}/src/start-game.c",
         "${workspaceFolder}/src/mega-sena/mega-sena.c",
+        "${workspaceFolder}/src/loto-facil/loto-facil.c",
+
         "-o",
         "${workspaceFolder}/loteria.exe"
       ],

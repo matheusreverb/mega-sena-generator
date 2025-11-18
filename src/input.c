@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
 #include "../includes/utils.h"
 
 int *setUserLuckyNumbers(int LIMIT, int MIN, int MAX) {
@@ -36,11 +38,11 @@ int *setUserLuckyNumbers(int LIMIT, int MIN, int MAX) {
   return luckyNumbers;
 }
 
-int setLimit() {
+int setLimitMegaSena() {
   int limit = 6;
-  while(1) {
+  while(true) {
     int newLimit = limit;
-    printf("Quantos numeros voce deseja jogar? (Padrao: %d):", limit);
+    printf("Quantos numeros voce deseja jogar?(padrao: %d):", limit);
     if(scanf("%d", &newLimit) != 1) {
       printf("O valor digitado nao e um numero inteiro.\n");
       while(getchar() != '\n');
@@ -52,6 +54,30 @@ int setLimit() {
     }
     if(newLimit > 15) {
       printf("O numero precisa ser menor que 15.\n");
+      continue;
+    }
+    limit = newLimit;
+    break;
+  }
+  return limit;
+}
+
+int setLimitLotoFacil() {
+  int limit = 15;
+  while(true) {
+    int newLimit = limit;
+    printf("Quantos numeros voce deseja jogar?(padrao: %d):", limit);
+    if(scanf("%d", &newLimit) != 1) {
+      printf("O valor digitado nao e um numero inteiro.\n");
+      while(getchar() != '\n');
+      continue;
+    } 
+    if(newLimit < 15) {
+      printf("O numero precisa ser maior que 15.\n");
+      continue;
+    }
+    if(newLimit > 20) {
+      printf("O numero precisa ser menor que 20.\n");
       continue;
     }
     limit = newLimit;
