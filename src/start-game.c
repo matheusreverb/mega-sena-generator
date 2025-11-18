@@ -6,21 +6,27 @@
 #include "../includes/input.h"
 #include "../includes/generate.h"
 
-void startGame(int MIN, int MAX, int GAME_LIMIT) {
+void startGame(
+  int MIN_NUMBERS,
+  int MAX_NUMBERS,
+  int MAX_GENERATED_NUMBERS,
+  int MIN_SELECT,
+  int MAX_SELECT
+) {
   srand(time(NULL));
   int counter = 0;
 
-  int userLimit = setLimitLotoFacil();
-  int *generatedNumbers = generateNumbers(GAME_LIMIT, MAX);
-  int *luckyNumbers = setUserLuckyNumbers(userLimit, MIN, MAX);
+  int userLimit = setLimit(MIN_SELECT, MAX_SELECT);
+  int *generatedNumbers = generateNumbers(MAX_GENERATED_NUMBERS, MAX_NUMBERS);
+  int *luckyNumbers = setUserLuckyNumbers(userLimit, MIN_NUMBERS, MAX_NUMBERS);
 
-  bubbleSort(generatedNumbers, GAME_LIMIT);
-  showNumbers("Numeros sorteados", generatedNumbers, GAME_LIMIT);
+  bubbleSort(generatedNumbers, MAX_GENERATED_NUMBERS);
+  showNumbers("Numeros sorteados", generatedNumbers, MAX_GENERATED_NUMBERS);
 
   bubbleSort(luckyNumbers, userLimit);
   showNumbers("Numeros escolhidos", luckyNumbers, userLimit);
 
-   for (int i = 0; i < GAME_LIMIT; i++) {
+   for (int i = 0; i < MAX_GENERATED_NUMBERS; i++) {
     const int generatedNumber = generatedNumbers[i];
     for(int j = 0; j < userLimit; j++) {  
       const int luckyNumber = luckyNumbers[j];

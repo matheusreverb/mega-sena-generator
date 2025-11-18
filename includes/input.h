@@ -2,7 +2,6 @@
 #define INPUT_H
 
 int *setUserLuckyNumbers(int LIMIT, int MIN, int MAX);
-int setLimitMegaSena();
-int setLimitLotoFacil();
+int setLimit(int MIN, int MAX);
 
 #endif

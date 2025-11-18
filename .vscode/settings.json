@@ -8,5 +8,6 @@
     "stdio.h": "c",
     "config.h": "c",
     "menu.h": "c",
+    "start-game.h": "c"
   }
 }

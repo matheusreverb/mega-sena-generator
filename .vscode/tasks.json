@@ -13,9 +13,8 @@
         "${workspaceFolder}/src/utils.c",
         "${workspaceFolder}/src/menu.c",
         "${workspaceFolder}/src/start-game.c",
-        "${workspaceFolder}/src/games/mega-sena.c",
-        "${workspaceFolder}/src/games/loto-facil.c",
-
+        "${workspaceFolder}/src/games.c",
+        "${workspaceFolder}/src/game_config.c",
         "-o",
         "${workspaceFolder}/loteria.exe"
       ],

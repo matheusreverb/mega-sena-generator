@@ -3,6 +3,6 @@
 
 extern const char *GAMES[];
 
-#define OPTIONS_NUMBERS 3
+#define OPTIONS_NUMBERS 4
 
 #endif

@@ -4,35 +4,7 @@
 
 #include "../includes/config.h"
 #include "../includes/menu.h"
-
-#include "../includes/mega-sena.h"
-#include "../includes/loto-facil.h"
-
-
-void endGame(size_t limit, int gameSelected) {
-  int choice = 0;
-
-  const char *OPTIONS[] = {"JOGAR NOVAMENTE", "IR PARA O MENU", "SAIR"};
-  size_t OPTIONS_LENGTH = sizeof(OPTIONS) / sizeof(OPTIONS[0]);
-
-  for(int i = 0; i < OPTIONS_LENGTH; i++) {
-    printf("%d - %s\n", i + 1, OPTIONS[i]);
-  }
-
-  printf("Escolha uma opcao:");
-  scanf("%d", &choice);
-
-  switch(choice) {
-    case 1:
-      setGame(limit, gameSelected);
-      break;
-    case 2:
-      setGame(limit, 0);
-    case 3:
-      printf("Saindo da Loteria");
-      return;
-  } 
-}
+#include "../includes/games.h"
 
 void setGame (size_t limit, int gameSelected) {
   int choice = 0;
@@ -44,7 +16,6 @@ void setGame (size_t limit, int gameSelected) {
       printf("%d - %s\n", i + 1, GAMES[i]);
     } 
   }
-
   while (true) {
     if(choice == 0) {
       printf("Digite o jogo que deseja jogar:");
@@ -59,6 +30,10 @@ void setGame (size_t limit, int gameSelected) {
         lotoFacil();
         endGame(limit, choice);
         return;
+      case 3:
+        quina();
+        endGame(limit, choice);
+        return;
       case OPTIONS_NUMBERS:
         printf("\nEncerrando o programa\n");
         return;
@@ -67,4 +42,31 @@ void setGame (size_t limit, int gameSelected) {
         choice = 0;
     }  
   }
+}
+void endGame(size_t limit, int gameSelected) {
+  int choice = 0;
+
+  const char *OPTIONS[] = {
+    "JOGAR NOVAMENTE", 
+    "IR PARA O MENU", 
+    "SAIR"
+  };
+  size_t OPTIONS_LENGTH = sizeof(OPTIONS) / sizeof(OPTIONS[0]);
+
+  for(int i = 0; i < OPTIONS_LENGTH; i++) {
+    printf("%d - %s\n", i + 1, OPTIONS[i]);
+  }
+  printf("Escolha uma opcao:");
+  scanf("%d", &choice);
+
+  switch(choice) {
+    case 1:
+      setGame(limit, gameSelected);
+      break;
+    case 2:
+      setGame(limit, 0);
+    case 3:
+      printf("Saindo da Loteria");
+      return;
+  } 
 }
